@@ -17,25 +17,47 @@ const ContactForm = () => {
     setForm({ ...form, [name]: value });
   };
 
+  const encode = (data: { [x: string]: string | number | boolean }) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...form }),
+    })
+      .then(
+        () => (
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          }),
+          toast({
+            title: "Message sent.",
+            description: "Your message has been sent.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          })
+        )
+      )
+      .catch((error) => alert(error));
     e.preventDefault();
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
-    toast({
-      title: "Message sent.",
-      description: "Your message has been sent.",
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    });
-    console.log(form);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      name="contact"
+      method="POST"
+      data-netlify-recaptcha="true"
+      data-netlify="true"
+    >
+      <input type="hidden" name="form-name" value="contact" />
       <Stack gap={5}>
         <ContactFormInput name="name" icon={HiUser} value={form.name} handleChange={handleChange} />
         <ContactFormInput
@@ -45,6 +67,7 @@ const ContactForm = () => {
           handleChange={handleChange}
         />
         <ContactFormTextarea value={form.message} handleChange={handleChange} />
+        <div data-netlify-recaptcha="true"></div>
         <Button colorScheme="teal" type="submit">
           Submit
         </Button>
