@@ -34,6 +34,10 @@ export const NAV_LINKS = [
     name: "Contact",
     id: "contact",
   },
+  {
+    name: "Social",
+    id: "social",
+  },
 ];
 
 export const ABOUT_CARDS = [
