@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Stack, Flex, Image } from "@chakra-ui/react";
+import { Flex, Image } from "@chakra-ui/react";
 
 type CardProps = {
   children: React.ReactNode;
