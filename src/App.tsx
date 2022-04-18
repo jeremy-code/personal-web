@@ -4,6 +4,7 @@ import { ChakraProvider, Flex, Image } from "@chakra-ui/react";
 import theme from "utils/theme";
 import { Navbar, Hero, Footer, Section, SplitSection } from "components/Layout";
 import { ABOUT_CARDS } from "utils/const";
+import { Carousel } from "components/Carousel";
 import { contactGraphic } from "assets";
 import { ContactForm } from "features/Contact";
 import { CardStack, AnimatedCard } from "components/Card";
@@ -21,7 +22,7 @@ function App() {
         </CardStack>
       </Section>
       <Section title="Projects" id="projects">
-        hi
+        <Carousel />
       </Section>
       <SplitSection title="Contact" id="contact">
         <ContactForm />
