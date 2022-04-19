@@ -13,7 +13,6 @@ const SocialMediaButton = ({ icon, username, link, color }: SocialMediaButtonPro
     <Flex>
       <IconButton
         aria-label="Github"
-        variant="outline"
         as={Link}
         icon={icon}
         href={link}

@@ -39,18 +39,18 @@ const App = () => {
               icon: <FaGithub />,
               username: "jeremynguyencs",
               link: "https://github.com/jeremynguyencs",
-              color: "black",
+              color: "blackAlpha",
             },
             {
               icon: <FaLinkedin />,
               username: "jeremynguyencs",
-              link: "https://www.linkedin.com/in/jeremynguyencs/",
+              link: "https://www.linkedin.com/in/jeremynguyencs",
               color: "linkedin",
             },
             {
               icon: <FaEnvelope />,
               username: "hi@jeremynguyen.dev",
-              link: "mailto:hi@jeremynguyen.dev/",
+              link: "mailto:hi@jeremynguyen.dev",
               color: "red",
             },
           ]}

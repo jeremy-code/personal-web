@@ -13,7 +13,7 @@ type SocialMediaButtonGroupProps = {
 };
 const SocialMediaButtonGroup = ({ socialMedia }: SocialMediaButtonGroupProps) => {
   return (
-    <Flex gap={3} flexDir={{ base: "column", md: "row" }}>
+    <Flex gap={4} flexDir={{ base: "column", md: "row" }}>
       {socialMedia.map((socialMediaButton) => (
         <SocialMediaButton
           key={socialMediaButton.link}
