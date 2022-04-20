@@ -57,9 +57,14 @@ const AnimatedCard = ({ front, back }: { front: FrontCardProps; back: BackCardPr
           animate={card1}
           transition={transition}
           onTap={toggleFlipped}
-          style={{ cursor: "pointer", height: "100%", userSelect: "none" }}
+          style={{
+            cursor: "pointer",
+            height: "100%",
+            userSelect: "none",
+          }}
+          whileHover={{ scale: 1.05 }}
         >
-          <FrontCard title={front.title} subtitle={front.subtitle} icon={front.icon} />
+          <FrontCard {...front} />
         </motion.div>
       </GridItem>
       <GridItem gridArea={"1 / 1 / 2 / 2"} zIndex={isFlipped ? 1 : 0}>
@@ -69,10 +74,15 @@ const AnimatedCard = ({ front, back }: { front: FrontCardProps; back: BackCardPr
           animate={card2}
           transition={transition}
           onTap={toggleFlipped}
-          style={{ cursor: "pointer", height: "100%", userSelect: "none" }}
+          style={{
+            cursor: "pointer",
+            height: "100%",
+            userSelect: "none",
+          }}
+          whileHover={{ scale: 1.05 }}
         >
           <motion.div initial={{ rotateX: 180 }} style={{ height: "100%" }}>
-            <BackCard description={back.description} />
+            <BackCard {...back} />
           </motion.div>
         </motion.div>
       </GridItem>

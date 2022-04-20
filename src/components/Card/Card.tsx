@@ -19,6 +19,7 @@ const Card = ({ children, image }: CardProps) => {
           h="200px"
           src={image}
           objectFit={"cover"}
+          draggable={false}
         />
       )}
       <Flex
