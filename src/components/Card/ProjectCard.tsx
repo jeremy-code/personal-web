@@ -28,9 +28,6 @@ const ProjectCard = () => {
           _hover={{
             bg: "teal.200",
           }}
-          _active={{
-            bg: "teal.200",
-          }}
           aria-label="demo"
           icon={<FaRegPlayCircle />}
           as={Link}

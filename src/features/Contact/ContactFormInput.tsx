@@ -7,14 +7,8 @@ import {
   Icon,
   Input,
 } from "@chakra-ui/react";
-import { IconType } from "react-icons";
 
-type ContactFormInputProps = {
-  name: string;
-  icon: IconType;
-  value: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { ContactFormInputProps } from "utils/const";
 
 const ContactFormInput = ({ name, icon, value, handleChange }: ContactFormInputProps) => {
   function handleParams(name: string) {

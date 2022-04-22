@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Container,
-  Flex,
   SimpleGrid,
   Stack,
   Heading,
@@ -10,6 +9,7 @@ import {
   Button,
   Image,
   LinkOverlay,
+  Flex,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
@@ -19,9 +19,9 @@ import { developerGraphic } from "assets";
 
 const Hero = () => {
   return (
-    <Container as={SimpleGrid} columns={[1, null, 2]} spacing={8} minH="md" id="hero">
-      <Stack justifyContent="center" gap={8}>
-        <Flex flexBasis="30%" gap={4} flexDir="column" justify="center">
+    <Container id="hero" as={SimpleGrid} columns={[1, null, 2]} minH="md">
+      <Stack justify="center" gap={10}>
+        <Flex flexDir="column" gap={4}>
           <Flex gap={4}>
             <Heading as="h1" size="4xl">
               <motion.span
@@ -77,7 +77,7 @@ const Hero = () => {
           </Button>
         </ButtonGroup>
       </Stack>
-      <Box display={{ base: "none", md: "flex" }}>
+      <Box display={["none", null, "flex"]}>
         <Image src={developerGraphic} fallbackSrc="https://via.placeholder.com/150" />
       </Box>
     </Container>

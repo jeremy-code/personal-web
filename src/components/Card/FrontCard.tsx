@@ -1,13 +1,8 @@
 import React from "react";
 import { Box, Badge, Circle, Icon, Heading } from "@chakra-ui/react";
-import { Card } from "components/Card";
-import { IconType } from "react-icons/lib/cjs";
 
-type FrontCardProps = {
-  title: string;
-  subtitle: string;
-  icon: IconType;
-};
+import { Card } from "components/Card";
+import { FrontCardProps } from "utils/const";
 
 const FrontCard = ({ title, subtitle, icon }: FrontCardProps) => {
   return (

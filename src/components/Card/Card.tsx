@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Flex, Image } from "@chakra-ui/react";
+import { Stack, Image } from "@chakra-ui/react";
 
 type CardProps = {
   children: React.ReactNode;
@@ -9,30 +9,14 @@ type CardProps = {
 
 const Card = ({ children, image }: CardProps) => {
   return (
-    <Flex borderWidth="1px" borderRadius="lg" h="full" direction="column">
+    <Stack borderWidth="1px" borderRadius="lg" h="full">
       {image && (
-        <Image
-          w={"full"}
-          borderWidth="1px"
-          borderTopLeftRadius="lg"
-          borderTopRightRadius="lg"
-          h="200px"
-          src={image}
-          objectFit={"cover"}
-          draggable={false}
-        />
+        <Image borderTopRadius="lg" h="200px" objectFit="cover" draggable="false" src={image} />
       )}
-      <Flex
-        flexDirection="column"
-        gap={4}
-        alignItems="center"
-        grow={1}
-        justifyContent="center"
-        p={8}
-      >
+      <Stack flexGrow={1} gap={4} align="center" justifyContent="center" p={8}>
         {children}
-      </Flex>
-    </Flex>
+      </Stack>
+    </Stack>
   );
 };
 

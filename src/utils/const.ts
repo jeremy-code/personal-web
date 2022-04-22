@@ -1,5 +1,12 @@
 import { IconType } from "react-icons";
-import { FaGraduationCap, FaCode, FaPencilAlt } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaCode,
+  FaPencilAlt,
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export type FrontCardProps = {
   title: string;
@@ -75,3 +82,42 @@ export const ABOUT_CARDS = [
     },
   },
 ];
+
+export type SocialMediaProps = {
+  name: string;
+  username: string;
+  link: string;
+  color: string;
+  icon: IconType;
+};
+
+export const SOCIAL_MEDIA = [
+  {
+    name: "GitHub",
+    username: "jeremynguyencs",
+    link: "https://github.com/jeremynguyencs",
+    color: "blackAlpha",
+    icon: FaGithub,
+  },
+  {
+    name: "LinkedIn",
+    username: "jeremynguyencs",
+    link: "https://www.linkedin.com/in/jeremynguyencs",
+    color: "linkedin",
+    icon: FaLinkedin,
+  },
+  {
+    name: "Email",
+    username: "hi@jeremynguyen.dev",
+    link: "mailto:hi@jeremynguyen.dev",
+    color: "red",
+    icon: FaEnvelope,
+  },
+];
+
+export type ContactFormInputProps = {
+  name: string;
+  icon: IconType;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};

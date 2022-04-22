@@ -1,36 +1,35 @@
 import React from "react";
-import { IconButton, Flex, Link } from "@chakra-ui/react";
+import { IconButton, Flex, Link, Icon } from "@chakra-ui/react";
 
-type SocialMediaButtonProps = {
-  icon: React.ReactElement;
-  username: string;
-  link: string;
-  color: string;
-};
+import { SocialMediaProps } from "utils/const";
 
-const SocialMediaButton = ({ icon, username, link, color }: SocialMediaButtonProps) => {
+const SocialMediaButton = ({ name, username, link, color, icon }: SocialMediaProps) => {
   return (
     <Flex>
       <IconButton
-        aria-label="Github"
+        icon={<Icon as={icon} />}
+        aria-label={name}
+        colorScheme={color}
+        borderRightRadius={0}
         as={Link}
-        icon={icon}
         href={link}
         isExternal
-        borderRightRadius={0}
-        colorScheme={color}
       />
       <Flex
-        border="1px"
-        borderLeft={0}
+        borderWidth="1px"
         borderColor="gray.200"
         borderRightRadius="md"
+        borderLeft={0}
         px={4}
         align="center"
+        _hover={{
+          bg: "gray.100",
+        }}
+        as={Link}
+        href={link}
+        isExternal
       >
-        <Link href={link} isExternal>
-          {username}
-        </Link>
+        {username}
       </Flex>
     </Flex>
   );

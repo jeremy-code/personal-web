@@ -17,6 +17,7 @@ const ContactForm = () => {
     setForm({ ...form, [name]: value });
   };
 
+  // Encode form data for sending as post data
   const encode = (data: { [x: string]: string | number | boolean }) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -24,6 +25,7 @@ const ContactForm = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -45,8 +47,7 @@ const ContactForm = () => {
           })
         )
       )
-      .catch((error) => alert(error));
-    e.preventDefault();
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -57,6 +58,7 @@ const ContactForm = () => {
       data-netlify-recaptcha="true"
       data-netlify="true"
     >
+      {/* For Netlify forms */}
       <input type="hidden" name="form-name" value="contact" />
       <Stack gap={5}>
         <ContactFormInput name="name" icon={HiUser} value={form.name} handleChange={handleChange} />

@@ -6,16 +6,16 @@ import { SectionProps } from "utils/const";
 const Section = ({ children, title, id }: SectionProps) => {
   return (
     <Container
+      id={id}
       as="section"
+      minH="md"
       py={8}
       display="flex"
-      flexDirection="column"
+      flexDir="column"
       gap={10}
-      id={id}
-      minH="md"
       justifyContent="center"
     >
-      <Heading as="h3" size="lg">
+      <Heading as="h2" size="xl" fontWeight="semibold">
         {title}
       </Heading>
       {children}
