@@ -1,27 +1,21 @@
 import React from "react";
 import { Card } from "components/Card";
 import { Heading, Text, Badge, Stack, Flex, IconButton, Divider, Link } from "@chakra-ui/react";
-
-import { patientport } from "assets";
 import { FaGithub, FaRegPlayCircle } from "react-icons/fa";
 
-const ProjectCard = () => {
+import { CarouselCard } from "utils/const";
+
+const ProjectCard = ({ title, tags, description, github, link, image }: CarouselCard) => {
   return (
-    <Card image={patientport}>
+    <Card image={image}>
       <Stack w="full">
         <Heading as="h3" size="md">
-          PatientPort
+          {title}
         </Heading>
-        <Text>{"React blockchain web app for managing patient data"}</Text>
+        <Text>{description}</Text>
       </Stack>
       <Flex justify="flex-start" w="full" gap={2}>
-        <IconButton
-          aria-label="github"
-          icon={<FaGithub />}
-          as={Link}
-          href="https://github.com/rishimagiawala/patient-port"
-          isExternal
-        />
+        <IconButton aria-label="github" icon={<FaGithub />} as={Link} href={github} isExternal />
         <IconButton
           bg="teal.100"
           color="teal.500"
@@ -31,21 +25,17 @@ const ProjectCard = () => {
           aria-label="demo"
           icon={<FaRegPlayCircle />}
           as={Link}
-          href="https://patientport.tech/"
+          href={link}
           isExternal
         />
       </Flex>
       <Divider />
       <Flex gap={2}>
-        <Badge variant="subtle" colorScheme="teal">
-          React
-        </Badge>
-        <Badge variant="subtle" colorScheme="teal">
-          Solidity
-        </Badge>
-        <Badge variant="subtle" colorScheme="teal">
-          ethers.js
-        </Badge>
+        {tags.map((tag) => (
+          <Badge key={tag} variant="subtle" colorScheme="teal">
+            {tag}
+          </Badge>
+        ))}
       </Flex>
     </Card>
   );

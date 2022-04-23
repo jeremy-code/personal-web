@@ -9,3 +9,5 @@ Libraries used:
 3. react-scroll
 4. React Intersection Observer
 5. React Icons
+
+Graphics used from open-source project [undraw.co](https://undraw.co/)
