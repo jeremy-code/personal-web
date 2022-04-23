@@ -78,7 +78,7 @@ const Hero = () => {
         </ButtonGroup>
       </Stack>
       <Box display={["none", null, "flex"]}>
-        <Image src={developerGraphic} fallbackSrc="https://via.placeholder.com/150" />
+        <Image src={developerGraphic} />
       </Box>
     </Container>
   );

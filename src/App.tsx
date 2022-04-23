@@ -28,12 +28,7 @@ const App = () => {
       <SplitSection title="Contact" id="contact">
         <ContactForm />
         <Flex display={["none", null, "block"]}>
-          <Image
-            src={contactGraphic}
-            fallbackSrc="https://via.placeholder.com/150"
-            maxW="sm"
-            ml="auto"
-          />
+          <Image src={contactGraphic} maxW="sm" ml="auto" />
         </Flex>
       </SplitSection>
       <Section title="Social" id="social">
