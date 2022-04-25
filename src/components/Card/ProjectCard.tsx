@@ -7,7 +7,7 @@ import { CarouselCard } from "utils/const";
 
 const ProjectCard = ({ title, tags, description, github, link, image }: CarouselCard) => {
   return (
-    <Card image={image}>
+    <Card image={image} altText={title}>
       <Stack w="full">
         <Heading as="h3" size="md">
           {title}

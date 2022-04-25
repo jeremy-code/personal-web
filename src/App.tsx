@@ -28,7 +28,7 @@ const App = () => {
       <SplitSection title="Contact" id="contact">
         <ContactForm />
         <Flex display={["none", null, "block"]}>
-          <Image src={contactGraphic} maxW="sm" ml="auto" />
+          <Image src={contactGraphic} maxW="sm" ml="auto" alt="Contact graphic" />
         </Flex>
       </SplitSection>
       <Section title="Social" id="social">

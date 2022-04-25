@@ -78,7 +78,7 @@ const Hero = () => {
         </ButtonGroup>
       </Stack>
       <Box display={["none", null, "flex"]}>
-        <Image src={developerGraphic} />
+        <Image src={developerGraphic} alt="Developer graphic" />
       </Box>
     </Container>
   );
