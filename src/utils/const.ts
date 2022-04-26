@@ -1,6 +1,4 @@
 import { IconType } from "react-icons";
-import { patientport, rhythmRoom, cryptoApp, covidTracker } from "assets";
-
 import {
   FaGraduationCap,
   FaCode,
@@ -9,6 +7,8 @@ import {
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa";
+
+import { patientport, rhythmRoom, cryptoApp, covidTracker } from "assets";
 
 export type FrontCardProps = {
   title: string;
@@ -69,7 +69,7 @@ export const ABOUT_CARDS = [
     },
     back: {
       description:
-        "I am a full-stack developer with a passion for building web applications. I have experience with React, Node, and Express, and many other langugages and technologies.",
+        "I am a full-stack developer with a passion for building web applications. I have experience with React, Node, Express, and many other langugages and technologies.",
     },
   },
   {
@@ -162,7 +162,7 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
   },
   {
     title: "COVID-19 Tracker",
-    tags: ["React", "Chart.js", "COVID-19 API"],
+    tags: ["React", "Chart.js", "API"],
     description: "Track the current status of COVID-19 in the world based on current data.",
     github: "https://github.com/jeremynguyencs/covid-tracker",
     link: "https://covid-tracker.herokuapp.com/",

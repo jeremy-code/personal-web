@@ -6,7 +6,9 @@ import { Card } from "components/Card";
 const BackCard = ({ description }: { description: string }) => {
   return (
     <Card>
-      <Text>{description}</Text>
+      <Card.Content justify="center">
+        <Text>{description}</Text>
+      </Card.Content>
     </Card>
   );
 };
