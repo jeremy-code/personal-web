@@ -8,7 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
-import { patientport, rhythmRoom, cryptoApp, covidTracker } from "assets";
+import { patientport, rhythmRoom, cryptoApp, covidTracker, crowdpage } from "assets";
 
 export type FrontCardProps = {
   title: string;
@@ -159,6 +159,15 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
     github: "https://github.com/jeremynguyencs/crypto-app",
     link: "https://another-crypto-app.netlify.app/",
     image: cryptoApp,
+  },
+  {
+    title: "Crowdpage",
+    tags: ["React", "Next.js", "Firebase"],
+    description:
+      "A social media platform for creating and sharing posts. Users can create posts and like other posts.",
+    github: "https://github.com/jeremynguyencs/crowdpage",
+    link: "crowdpage.vercel.app",
+    image: crowdpage,
   },
   {
     title: "COVID-19 Tracker",
