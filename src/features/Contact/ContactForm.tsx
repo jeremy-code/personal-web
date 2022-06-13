@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Stack, Button, useToast } from "@chakra-ui/react";
-import { HiUser, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineUser, HiOutlineMail } from "react-icons/hi";
 
 import { ContactFormInput, ContactFormTextarea } from "features/Contact";
 
@@ -61,7 +61,12 @@ const ContactForm = () => {
       {/* For Netlify forms */}
       <input type="hidden" name="form-name" value="contact" />
       <Stack gap={5}>
-        <ContactFormInput name="name" icon={HiUser} value={form.name} handleChange={handleChange} />
+        <ContactFormInput
+          name="name"
+          icon={HiOutlineUser}
+          value={form.name}
+          handleChange={handleChange}
+        />
         <ContactFormInput
           name="email"
           icon={HiOutlineMail}

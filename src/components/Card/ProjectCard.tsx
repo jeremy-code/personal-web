@@ -1,6 +1,6 @@
 import React from "react";
 import { Heading, Text, ButtonGroup, IconButton, Link } from "@chakra-ui/react";
-import { FaGithub, FaRegPlayCircle } from "react-icons/fa";
+import { HiOutlineCode, HiOutlineExternalLink } from "react-icons/hi";
 
 import { Card } from "components/Card";
 import { CarouselCard } from "utils/const";
@@ -17,13 +17,19 @@ const ProjectCard = ({ title, tags, description, github, link, image }: Carousel
       </Card.Content>
       <Card.Footer tags={tags}>
         <ButtonGroup>
-          <IconButton as={Link} href={github} aria-label="github" isExternal icon={<FaGithub />} />
+          <IconButton
+            as={Link}
+            href={github}
+            aria-label="github"
+            isExternal
+            icon={<HiOutlineCode />}
+          />
           <IconButton
             as={Link}
             href={link}
             aria-label="demo"
             isExternal
-            icon={<FaRegPlayCircle />}
+            icon={<HiOutlineExternalLink />}
             bg="teal.100"
             color="teal.500"
             _hover={{

@@ -1,12 +1,9 @@
 import { IconType } from "react-icons";
-import {
-  FaGraduationCap,
-  FaCode,
-  FaPencilAlt,
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { FiGithub } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa";
+
+import { HiOutlineAcademicCap, HiOutlineTerminal, HiOutlinePhotograph } from "react-icons/hi";
 
 import { patientport, rhythmRoom, cryptoApp, covidTracker, crowdpage } from "assets";
 
@@ -54,7 +51,7 @@ export const ABOUT_CARDS = [
     front: {
       title: "Student",
       subtitle: "UC San Diego",
-      icon: FaGraduationCap,
+      icon: HiOutlineAcademicCap,
     },
     back: {
       description:
@@ -65,7 +62,7 @@ export const ABOUT_CARDS = [
     front: {
       title: "Developer",
       subtitle: "Full-Stack",
-      icon: FaCode,
+      icon: HiOutlineTerminal,
     },
     back: {
       description:
@@ -76,7 +73,7 @@ export const ABOUT_CARDS = [
     front: {
       title: "Creative",
       subtitle: "Designer",
-      icon: FaPencilAlt,
+      icon: HiOutlinePhotograph,
     },
     back: {
       description:
@@ -99,21 +96,21 @@ export const SOCIAL_MEDIA = [
     username: "jeremynguyencs",
     link: "https://github.com/jeremynguyencs",
     color: "blackAlpha",
-    icon: FaGithub,
+    icon: FiGithub,
   },
   {
     name: "LinkedIn",
     username: "jeremynguyencs",
     link: "https://www.linkedin.com/in/jeremynguyencs",
     color: "linkedin",
-    icon: FaLinkedin,
+    icon: FaLinkedinIn,
   },
   {
     name: "Email",
     username: "hi@jeremynguyen.dev",
     link: "mailto:hi@jeremynguyen.dev",
     color: "red",
-    icon: FaEnvelope,
+    icon: HiOutlineMail,
   },
 ];
 

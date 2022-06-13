@@ -12,14 +12,16 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerContent,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { IoIosRocket } from "react-icons/io";
+import { IoRocketOutline } from "react-icons/io5";
 import { Link as scrollLink, animateScroll } from "react-scroll";
 import { motion, AnimateSharedLayout, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { NAV_LINKS } from "utils/const";
+import { favicon } from "assets";
 
 type NavLinkProps = {
   text: string;
@@ -92,10 +94,10 @@ const MobileNav = ({ onClose }: MobileNavProps) => {
                 })
               }
               size="40px"
-              bg="teal.500"
-              color="teal.100"
+              bg="teal.100"
+              color="teal.500"
             >
-              <Icon as={IoIosRocket} />
+              <Icon as={IoRocketOutline} />
             </Circle>
             <Heading
               as={Link}
@@ -260,35 +262,25 @@ const Navbar = () => {
 
   return (
     <AnimatedNavbar isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-      <Container as={Flex} align="center" justifyContent={{ base: "center", md: "space-between" }}>
+      <Container as={Flex} align="center" justify={["center", null, "space-between"]}>
         <Flex gap={4} align="center">
-          <Circle
-            as={Link}
-            onClick={() =>
-              animateScroll.scrollToTop({
-                duration: 500,
-                smooth: true,
-              })
-            }
-            size="40px"
-            bg="teal.500"
-            color="teal.100"
-          >
-            <Icon as={IoIosRocket} />
-          </Circle>
-          <Heading
-            as={Link}
-            size="md"
-            onClick={() =>
-              animateScroll.scrollToTop({
-                duration: 500,
-                smooth: true,
-              })
-            }
-            _hover={{ textDecoration: "none" }}
-          >
-            Jeremy Nguyen
-          </Heading>
+          <Flex gap={3} align="center">
+            <Image src={favicon} alt="logo" boxSize="40px" />
+            {/* <Icon color="teal.500" boxSize={6} as={IoRocketOutline} /> */}
+            <Heading
+              as={Link}
+              size="md"
+              onClick={() =>
+                animateScroll.scrollToTop({
+                  duration: 500,
+                  smooth: true,
+                })
+              }
+              _hover={{ textDecoration: "none" }}
+            >
+              Jeremy Nguyen
+            </Heading>
+          </Flex>
         </Flex>
         <Flex gap={8} align="center" display={{ base: "none", md: "flex" }}>
           <AnimateSharedLayout>

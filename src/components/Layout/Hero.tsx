@@ -11,15 +11,15 @@ import {
   LinkOverlay,
   Flex,
 } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import { Link as scrollLink } from "react-scroll";
+import { HiChevronRight } from "react-icons/hi";
 
 import { developerGraphic } from "assets";
 
 const Hero = () => {
   return (
-    <Container id="hero" as={SimpleGrid} columns={[1, null, 2]} minH="md">
+    <Container id="hero" as={SimpleGrid} columns={[1, null, 2]} minH="xl">
       <Stack justify="center" gap={10}>
         <Flex flexDir="column" gap={4}>
           <Flex gap={4}>
@@ -57,7 +57,7 @@ const Hero = () => {
         <ButtonGroup>
           <Button
             colorScheme="teal"
-            rightIcon={<ChevronRightIcon />}
+            rightIcon={<HiChevronRight />}
             as={scrollLink}
             to="contact"
             smooth={true}
