@@ -100,8 +100,8 @@ export const SOCIAL_MEDIA = [
   },
   {
     name: "LinkedIn",
-    username: "jeremynguyencs",
-    link: "https://www.linkedin.com/in/jeremynguyencs",
+    username: "jeremynguyendev",
+    link: "https://www.linkedin.com/in/jeremynguyendev",
     color: "linkedin",
     icon: FaLinkedinIn,
   },
@@ -136,7 +136,7 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
     tags: ["React", "Solidity", "Ether.js"],
     description: "React Blockchain web application for managing patient records.",
     github: "https://github.com/rishimagiawala/patient-port",
-    link: "https://patientport.netlify.com/",
+    link: "https://www.patientport.tech",
     image: patientport,
   },
   {
@@ -145,7 +145,7 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
     description:
       "A web app that allows you to listen to music and watch videos synchronously with other people.",
     github: "https://github.com/sprestrelski/rhythm-room",
-    link: "https://rhythm-room.herokuapp.com/",
+    link: "https://rhythmroom.herokuapp.com/",
     image: rhythmRoom,
   },
   {
@@ -163,7 +163,7 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
     description:
       "A social media platform for creating and sharing posts. Users can create posts and like other posts.",
     github: "https://github.com/jeremynguyencs/crowdpage",
-    link: "crowdpage.vercel.app",
+    link: "https://crowdpage.vercel.app",
     image: crowdpage,
   },
   {
@@ -171,7 +171,7 @@ export const PROJECT_CARDS: Array<CarouselCard> = [
     tags: ["React", "Chart.js", "API"],
     description: "Track the current status of COVID-19 in the world based on current data.",
     github: "https://github.com/jeremynguyencs/covid-tracker",
-    link: "https://covid-tracker.herokuapp.com/",
+    link: "https://covid-tracker-site.netlify.app",
     image: covidTracker,
   },
 ];
