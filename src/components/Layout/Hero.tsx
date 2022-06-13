@@ -5,6 +5,7 @@ import {
   SimpleGrid,
   Stack,
   Heading,
+  Text,
   ButtonGroup,
   Button,
   Image,
@@ -50,9 +51,7 @@ const Hero = () => {
               Hi,
             </Heading>
           </Flex>
-          <Heading as="h3" size="lg">
-            {"I'm Jeremy"}
-          </Heading>
+          <Text fontSize="4xl">{"I'm Jeremy"}</Text>
         </Flex>
         <ButtonGroup>
           <Button

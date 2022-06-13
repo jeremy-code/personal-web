@@ -1,5 +1,6 @@
 import React from "react";
 import { ChakraProvider, Flex, Image } from "@chakra-ui/react";
+import "@fontsource/dm-sans";
 
 import theme from "utils/theme";
 import { Navbar, Hero, Footer, Section, SplitSection } from "components/Layout";
