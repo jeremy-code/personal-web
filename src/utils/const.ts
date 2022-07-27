@@ -115,7 +115,7 @@ export const SOCIAL_MEDIA = [
 ];
 
 export type ContactFormInputProps = {
-  name: string;
+  name: "name" | "email" | "message";
   icon: IconType;
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
