@@ -8,11 +8,10 @@ import {
   FormErrorMessage,
   Input,
 } from "@chakra-ui/react";
-
 import { IconType } from "react-icons";
+import { FieldError, UseFormRegister } from "react-hook-form";
 
 import { ContactFormData } from "features/Contact/ContactForm";
-import { FieldError, UseFormRegister } from "react-hook-form";
 
 type ContactFormProps = {
   name: "name" | "email";
@@ -43,44 +42,3 @@ const ContactFormInput = ({ name, placeholder, icon, error, register }: ContactF
 };
 
 export default ContactFormInput;
-
-// import { ContactFormInputProps } from "utils/const";
-
-// const ContactFormInput = ({ name, icon, value, handleChange }: ContactFormInputProps) => {
-//   function handleParams(name: string) {
-//     if (name === "name") {
-//       return {
-//         type: "text",
-//         placeholder: "Jane Doe",
-//       };
-//     } else if (name === "email") {
-//       return {
-//         type: "email",
-//         placeholder: "jane.doe@starfleet.com",
-//       };
-//     } else {
-//       console.log("Error: ContactFormInput.tsx: handleParams()");
-//     }
-//   }
-
-//   return (
-//     <FormControl isRequired>
-//       <FormLabel htmlFor="name" textTransform="capitalize">
-//         {name}
-//       </FormLabel>
-//       <InputGroup>
-//         <InputLeftElement pointerEvents="none">
-//           <Icon as={icon} color="gray.300" />
-//         </InputLeftElement>
-//         <Input
-//           placeholder={handleParams(name)?.placeholder}
-//           name={name}
-//           value={value}
-//           onChange={handleChange}
-//         />
-//       </InputGroup>
-//     </FormControl>
-//   );
-// };
-
-// export default ContactFormInput;

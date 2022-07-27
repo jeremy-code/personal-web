@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Button,
-  FormErrorMessage,
-  FormLabel,
-  FormControl,
-  Input,
-  InputLeftElement,
-  useToast,
-  InputGroup,
-} from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { HiOutlineUser, HiOutlineMail } from "react-icons/hi";
 
@@ -27,10 +18,29 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>();
+  const toast = useToast();
 
-  function onSubmit(data: ContactFormData) {
-    console.log(data);
-  }
+  const onSubmit = async (data: ContactFormData) => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      }),
+    };
+    const response = await fetch(process.env.REACT_APP_SERVERLESS_FN_URL || "", requestOptions);
+    if (response.ok) {
+      toast({
+        title: "Success",
+        description: "Your message has been sent.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -58,32 +68,6 @@ const ContactForm = () => {
         Submit
       </Button>
     </form>
-    // <form
-    //   onSubmit={handleSubmit}
-    //   name="contact"
-    //   method="POST"
-    //   data-netlify-recaptcha="true"
-    //   data-netlify="true"
-    // >
-    //   <Stack gap={5}>
-    //     <ContactFormInput
-    //       name="name"
-    //       icon={HiOutlineUser}
-    //       value={form.name}
-    //       handleChange={handleChange}
-    //     />
-    //     <ContactFormInput
-    //       name="email"
-    //       icon={HiOutlineMail}
-    //       value={form.email}
-    //       handleChange={handleChange}
-    //     />
-    //     <ContactFormTextarea value={form.message} handleChange={handleChange} />
-    //     <Button colorScheme="teal" type="submit">
-    //       Submit
-    //     </Button>
-    //   </Stack>
-    // </form>
   );
 };
 
