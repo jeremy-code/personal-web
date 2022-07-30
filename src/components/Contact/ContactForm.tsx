@@ -30,7 +30,7 @@ const ContactForm = () => {
       }),
     };
     const response = await fetch(
-      process.env.REACT_APP_SERVERLESS_FN_URL || "",
+      process.env.GATSBY_SERVERLESS_FN_URL || "",
       requestOptions
     );
     if (response.ok) {
