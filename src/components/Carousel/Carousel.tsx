@@ -12,7 +12,6 @@ const Carousel = () => {
   useEffect(() => {
     if (carousel.current) {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-      console.log(PROJECT_CARDS);
     }
   }, [carousel]);
 

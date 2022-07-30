@@ -20,10 +20,6 @@ const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
 
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
-
   return (
     <>
       {/* Animated navbar that is rendered whenever the normal navbar leaves the viewport */}
