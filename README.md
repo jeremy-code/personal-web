@@ -1,18 +1,16 @@
 # Jeremy Nguyen's Personal Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ea42ef01-63d2-4031-9e24-61fdd7f2c081/deploy-status)](https://app.netlify.com/sites/jeremy-nguyen/deploys)
-
 ## About
 
-Personal portfolio website for Jeremy Nguyen. Built in React and Typescript with [Create React App](https://create-react-app.dev/) and hosted on [Netlify](https://www.netlify.com/).
+Personal portfolio website for Jeremy Nguyen. Built in React and Typescript with [Gatsby](https://www.gatsbyjs.com/) and hosted on [Cloudflare](https://www.cloudflare.com/).
 
 Libraries used:
 
 1. Chakra UI
 2. Framer Motion
-3. react-scroll
-4. React Intersection Observer
-5. React Icons
+3. Gatsby
+4. GraphQL
+5. Heroicons
 
 Graphics used from open-source project [undraw.co](https://undraw.co/).
 

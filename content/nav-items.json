@@ -1,0 +1,25 @@
+{
+  "title": "List of nav items for Navbar",
+  "content": [
+    {
+      "name": "Home",
+      "id": "navbar"
+    },
+    {
+      "name": "About",
+      "id": "about"
+    },
+    {
+      "name": "Projects",
+      "id": "projects"
+    },
+    {
+      "name": "Contact",
+      "id": "contact"
+    },
+    {
+      "name": "Social",
+      "id": "social"
+    }
+  ]
+}

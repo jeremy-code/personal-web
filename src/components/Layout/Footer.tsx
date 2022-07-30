@@ -1,6 +1,5 @@
 import React from "react";
 import { Center, Text, Link } from "@chakra-ui/react";
-import { SOCIAL_MEDIA } from "utils/const";
 
 const Footer = () => {
   return (
@@ -11,14 +10,7 @@ const Footer = () => {
           ❤️
         </span>
         {" by "}
-        <Link
-          href={
-            // Returns the link to the GitHub profile found in the constants file
-            SOCIAL_MEDIA.find((item) => item.name === "GitHub")?.link || "https://jeremynguyen.dev"
-          }
-          color="teal.500"
-          isExternal
-        >
+        <Link href="https://jeremynguyen.dev" color="primary.500" isExternal>
           Jeremy Nguyen
         </Link>
       </Text>

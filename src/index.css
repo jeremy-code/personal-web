@@ -1,0 +1,12 @@
+/* push footer to bottom */
+html,
+body,
+#___gatsby,
+#___gatsby > div {
+  height: 100%;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
+}
