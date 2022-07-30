@@ -1,0 +1,35 @@
+{
+  "title": "About Cards Content",
+  "content": [
+    {
+      "front": {
+        "title": "Student",
+        "subtitle": "UC San Diego",
+        "icon": "AcademicCapIcon"
+      },
+      "back": {
+        "description": "I am a student at the University of California, San Diego. I am currently pursuing a B.S. in Mathematics and Computer Science."
+      }
+    },
+    {
+      "front": {
+        "title": "Developer",
+        "subtitle": "Full-Stack",
+        "icon": "TerminalIcon"
+      },
+      "back": {
+        "description": "I am a full-stack developer with a passion for building web applications. I have experience with React, Node, Express, and many other langugages and technologies."
+      }
+    },
+    {
+      "front": {
+        "title": "Creative",
+        "subtitle": "Designer",
+        "icon": "PhotographIcon"
+      },
+      "back": {
+        "description": "I am a designer with a passion for creating beautiful and functional interfaces. I have experience with Figma, and Adobe XD, Adobe Photoshop, and Adobe Illustrator."
+      }
+    }
+  ]
+}

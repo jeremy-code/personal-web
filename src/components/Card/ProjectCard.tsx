@@ -1,11 +1,26 @@
 import React from "react";
 import { Heading, Text, ButtonGroup, IconButton, Link } from "@chakra-ui/react";
-import { HiOutlineCode, HiOutlineExternalLink } from "react-icons/hi";
 
-import { Card } from "components/Card";
-import { CarouselCard } from "utils/const";
+import { Icon } from "../Misc";
+import { Card } from "../Card";
 
-const ProjectCard = ({ title, tags, description, github, link, image }: CarouselCard) => {
+type ProjectCardProps = {
+  title: string;
+  tags: string[];
+  description: string;
+  github: string;
+  link: string;
+  image: string;
+};
+
+const ProjectCard = ({
+  title,
+  tags,
+  description,
+  github,
+  link,
+  image,
+}: ProjectCardProps) => {
   return (
     <Card w="250px">
       <Card.Image image={image} altText={title} />
@@ -22,19 +37,15 @@ const ProjectCard = ({ title, tags, description, github, link, image }: Carousel
             href={github}
             aria-label="github"
             isExternal
-            icon={<HiOutlineCode />}
+            icon={<Icon icon="CodeIcon" />}
           />
           <IconButton
             as={Link}
             href={link}
             aria-label="demo"
             isExternal
-            icon={<HiOutlineExternalLink />}
-            bg="teal.100"
-            color="teal.500"
-            _hover={{
-              bg: "teal.200",
-            }}
+            icon={<Icon icon="ExternalLinkIcon" />}
+            colorScheme="primary"
           />
         </ButtonGroup>
       </Card.Footer>

@@ -1,11 +1,32 @@
 import React from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
-import { motion, useCycle, useAnimation, Transition, MotionStyle } from "framer-motion";
+import {
+  motion,
+  useCycle,
+  useAnimation,
+  Transition,
+  MotionStyle,
+} from "framer-motion";
 
-import { FrontCardProps, BackCardProps } from "utils/const";
-import { FrontCard, BackCard } from "components/Card";
+import { FrontCard, BackCard } from "../Card";
 
-const AnimatedCard = ({ front, back }: { front: FrontCardProps; back: BackCardProps }) => {
+type FrontCardProps = {
+  title: string;
+  subtitle: string;
+  icon: string;
+};
+
+type BackCardProps = {
+  description: string;
+};
+
+const AnimatedCard = ({
+  front,
+  back,
+}: {
+  front: FrontCardProps;
+  back: BackCardProps;
+}) => {
   const [isFlipped, toggleFlip] = useCycle(false, true);
   const frontCardControls = useAnimation();
   const backCardControls = useAnimation();

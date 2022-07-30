@@ -8,19 +8,31 @@ import {
   Text,
   ButtonGroup,
   Button,
-  Image,
   LinkOverlay,
   Flex,
 } from "@chakra-ui/react";
+import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
-import { Link as scrollLink } from "react-scroll";
-import { HiChevronRight } from "react-icons/hi";
 
-import { developerGraphic } from "assets";
+import { Icon } from "../Misc";
 
 const Hero = () => {
+  // Scroll to Contact section
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("contact");
+    const y = element!.getBoundingClientRect().top + window.pageYOffset - 50;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
-    <Container id="hero" as={SimpleGrid} columns={[1, null, 2]} minH="xl">
+    <Container
+      id="hero"
+      as={SimpleGrid}
+      columns={[1, null, 2]}
+      minH="xl"
+      my={8}
+    >
       <Stack justify="center" gap={10}>
         <Flex flexDir="column" gap={4}>
           <Flex gap={4}>
@@ -55,12 +67,12 @@ const Hero = () => {
         </Flex>
         <ButtonGroup>
           <Button
-            colorScheme="teal"
-            rightIcon={<HiChevronRight />}
-            as={scrollLink}
-            to="contact"
-            smooth={true}
-            duration={500}
+            colorScheme="primary"
+            rightIcon={<Icon icon="ChevronRightIcon" />}
+            onClick={handleClick}
+            // as={NavLink}
+            // text=""
+            // href="contact"
             cursor="pointer"
           >
             Contact me
@@ -70,14 +82,19 @@ const Hero = () => {
             variant="ghost"
             fontWeight="normal"
             isExternal
-            href={process.env.PUBLIC_URL + "/resume.pdf"}
+            href={"/resume.pdf"}
           >
             See my Resume
           </Button>
         </ButtonGroup>
       </Stack>
       <Box display={["none", null, "flex"]}>
-        <Image src={developerGraphic} alt="Developer graphic" />
+        <StaticImage
+          src="../../assets/developer-graphic.webp"
+          alt="Developer graphic"
+          objectFit="contain"
+          loading="eager"
+        />
       </Box>
     </Container>
   );

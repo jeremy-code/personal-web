@@ -1,0 +1,26 @@
+{
+  "title": "Content for Social Media",
+  "content": [
+    {
+      "name": "GitHub",
+      "username": "jeremynguyencs",
+      "link": "https://github.com/jeremynguyencs",
+      "color": "blackAlpha",
+      "icon": "GithubIcon"
+    },
+    {
+      "name": "LinkedIn",
+      "username": "jeremynguyendev",
+      "link": "https://www.linkedin.com/in/jeremynguyendev",
+      "color": "linkedin",
+      "icon": "LinkedInIcon"
+    },
+    {
+      "name": "Email",
+      "username": "hi@jeremynguyen.dev",
+      "link": "mailto:hi@jeremynguyen.dev",
+      "color": "red",
+      "icon": "MailIcon"
+    }
+  ]
+}

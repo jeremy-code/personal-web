@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { SimpleGrid, Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-import { ProjectCard } from "components/Card";
-import { PROJECT_CARDS } from "utils/const";
+import { ProjectCard } from "../Card";
+import PROJECT_CARDS from "../../../content/project-cards.json";
 
 const Carousel = () => {
   const [width, setWidth] = useState(0);
@@ -12,6 +12,7 @@ const Carousel = () => {
   useEffect(() => {
     if (carousel.current) {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+      console.log(PROJECT_CARDS);
     }
   }, [carousel]);
 
@@ -25,7 +26,7 @@ const Carousel = () => {
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
       >
-        {PROJECT_CARDS.map((card) => (
+        {PROJECT_CARDS.content.map((card) => (
           <ProjectCard key={card.title} {...card} />
         ))}
       </SimpleGrid>
