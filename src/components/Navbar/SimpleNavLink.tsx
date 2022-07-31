@@ -9,7 +9,7 @@ type NavLinkProps = {
 const SimpleNavLink = forwardRef(
   ({ href, text, ...rest }: NavLinkProps, ref) => {
     return (
-      <Link color="gray.500" href={`#${href}`} ref={ref} {...rest}>
+      <Link color="gray.600" href={`#${href}`} ref={ref} {...rest}>
         {text}
       </Link>
     );

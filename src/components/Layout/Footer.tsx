@@ -1,5 +1,6 @@
 import React from "react";
-import { Center, Text, Link } from "@chakra-ui/react";
+import { Center, Text, Link as CLink } from "@chakra-ui/react";
+import { Link } from "gatsby";
 
 const Footer = () => {
   return (
@@ -10,9 +11,9 @@ const Footer = () => {
           ❤️
         </span>
         {" by "}
-        <Link href="https://jeremynguyen.dev" color="primary.500" isExternal>
+        <CLink as={Link} to="/" color="primary.500">
           Jeremy Nguyen
-        </Link>
+        </CLink>
       </Text>
     </Center>
   );

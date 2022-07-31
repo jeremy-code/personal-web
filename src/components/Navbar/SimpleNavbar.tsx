@@ -1,13 +1,7 @@
 import React, { forwardRef } from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  BoxProps,
-} from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, BoxProps } from "@chakra-ui/react";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 import NavLink from "./NavLink";
 import NAV_ITEMS from "../../../content/nav-items.json";
@@ -32,14 +26,21 @@ const SimpleNavbar = forwardRef(
         >
           <Flex gap={4} align="center">
             <Flex gap={3} align="center">
-              <StaticImage
-                src="../../assets/icon.svg"
-                loading="eager"
-                alt="logo"
-                width={40}
-                height={40}
-              />
-              <Heading as={Link} size="md" _hover={{ textDecoration: "none" }}>
+              <Link to="/">
+                <StaticImage
+                  src="../../assets/icon.svg"
+                  loading="eager"
+                  alt="logo"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Heading
+                as={Link}
+                to="/"
+                size="md"
+                _hover={{ textDecoration: "none" }}
+              >
                 Jeremy Nguyen
               </Heading>
             </Flex>

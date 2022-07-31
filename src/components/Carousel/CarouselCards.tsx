@@ -7,7 +7,7 @@ import PROJECT_CARDS from "../../../content/project-cards.json";
 const CarouselCards = forwardRef(
   (props, ref: React.LegacyRef<HTMLDivElement>) => {
     return (
-      <SimpleGrid gridAutoFlow="column" gap={4} ref={ref}>
+      <SimpleGrid gridAutoFlow="column" gap={4} ref={ref} cursor="pointer">
         {PROJECT_CARDS.content.map((card) => (
           <ProjectCard key={card.title} {...card} />
         ))}
