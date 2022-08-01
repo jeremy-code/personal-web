@@ -1,8 +1,15 @@
-import React, { useState, useLayoutEffect, useRef, useCallback } from "react";
+import React, {
+  useState,
+  useLayoutEffect,
+  useRef,
+  useCallback,
+  useDeferredValue,
+} from "react";
 import { Box } from "@chakra-ui/react";
 import { motion, MotionStyle } from "framer-motion";
 
 import CarouselCards from "./CarouselCards";
+import ScrollIndicator from "./ScrollIndicator";
 
 const AnimatedProjectCards = motion(CarouselCards);
 
@@ -45,15 +52,36 @@ const Carousel = () => {
     return () => window.removeEventListener("resize", updateConstraint);
   }, []);
 
+  const deferredTranslate = useDeferredValue(carouselRef.current?.scrollLeft);
+
+  // create a callback function that occurs on drag
+  const onDragHandler = useCallback(() => {
+    const element = carouselRef.current!;
+    // Get the translateX style from the carousel as a number
+    const rawTranslateX = parseInt(
+      element.style.transform.replace(/[^-\d.]/g, "")
+    );
+    // Return 0 if positive (meaning scrolled to the left)
+    const translateX = rawTranslateX < 0 ? -rawTranslateX : 0;
+
+    const totalWidth = element.scrollWidth - element.clientWidth;
+    return translateX / totalWidth;
+    // only run when the transform changes
+  }, [deferredTranslate]);
+
   return (
-    <Box overflow="hidden">
-      <AnimatedProjectCards
-        drag="x"
-        dragConstraints={constraintRef}
-        ref={carouselRef}
-      />
-      <motion.div style={constraintStyle} ref={constraintRef} />
-    </Box>
+    <>
+      <Box overflow="hidden">
+        <AnimatedProjectCards
+          drag="x"
+          dragConstraints={constraintRef}
+          ref={carouselRef}
+          onDrag={onDragHandler}
+        />
+        <motion.div style={constraintStyle} ref={constraintRef} />
+      </Box>
+      <ScrollIndicator callback={onDragHandler} />
+    </>
   );
 };
 

@@ -85,7 +85,7 @@ const CardImage = ({ image, altText }: CardImageProps) => {
   };
 
   return (
-    <Flex grow="1">
+    <Flex grow="1" pointerEvents="none">
       <GatsbyImage alt={altText} image={findImage(image)} />
     </Flex>
   );
