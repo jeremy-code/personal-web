@@ -1,5 +1,10 @@
 import React from "react";
-import { Link, forwardRef, LinkProps } from "@chakra-ui/react";
+import {
+  Link,
+  forwardRef,
+  LinkProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 type NavLinkProps = {
   href: string;
@@ -9,7 +14,12 @@ type NavLinkProps = {
 const SimpleNavLink = forwardRef(
   ({ href, text, ...rest }: NavLinkProps, ref) => {
     return (
-      <Link color="gray.600" href={`#${href}`} ref={ref} {...rest}>
+      <Link
+        color={useColorModeValue("gray.600", "gray.400")}
+        href={`#${href}`}
+        ref={ref}
+        {...rest}
+      >
         {text}
       </Link>
     );

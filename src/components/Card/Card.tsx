@@ -1,5 +1,11 @@
 import React from "react";
-import { Flex, Divider, Badge, FlexProps } from "@chakra-ui/react";
+import {
+  Flex,
+  Divider,
+  Badge,
+  FlexProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -118,6 +124,8 @@ const Card = ({ children, ...rest }: CardProps) => {
       borderRadius="lg"
       h="full"
       w="full"
+      bg={useColorModeValue("white", "gray.700")}
+      borderColor={useColorModeValue("gray.200", "gray.600")}
       {...rest}
     >
       {children}

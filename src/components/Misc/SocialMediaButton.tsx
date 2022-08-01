@@ -1,5 +1,11 @@
 import React from "react";
-import { IconButton, Flex, Link, createIcon } from "@chakra-ui/react";
+import {
+  IconButton,
+  Flex,
+  Link,
+  createIcon,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 import Icon from "./Icon";
 
@@ -64,13 +70,13 @@ const SocialMediaButton = ({
       />
       <Flex
         borderWidth="1px"
-        borderColor="gray.200"
+        borderColor={useColorModeValue("gray.200", "gray.700")}
         borderRightRadius="md"
         borderLeft={0}
         px={4}
         align="center"
         _hover={{
-          bg: "gray.100",
+          bg: useColorModeValue("gray.100", "gray.700"),
         }}
         as={Link}
         href={link}

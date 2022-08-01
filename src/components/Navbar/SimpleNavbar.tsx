@@ -1,29 +1,33 @@
 import React, { forwardRef } from "react";
-import { Box, Container, Flex, Heading, BoxProps } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  BoxProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
 import NavLink from "./NavLink";
 import NAV_ITEMS from "../../../content/nav-items.json";
+import { ToggleDarkMode } from "../Misc";
 
 const SimpleNavbar = forwardRef(
   (props: BoxProps, ref: React.LegacyRef<HTMLDivElement>) => {
     return (
       <Box
-        bg="white"
+        bg={useColorModeValue("white", "gray.900")}
         borderBottom="1px"
-        borderColor="gray.200"
+        borderColor={useColorModeValue("gray.200", "gray.900")}
         py={4}
         ref={ref}
         w="full"
         zIndex={999}
         {...props}
       >
-        <Container
-          as={Flex}
-          align="center"
-          justify={["center", null, "space-between"]}
-        >
+        <Container as={Flex} align="center" justify="space-between">
           <Flex gap={4} align="center">
             <Flex gap={3} align="center">
               <Link to="/">
@@ -49,6 +53,9 @@ const SimpleNavbar = forwardRef(
             {NAV_ITEMS.content.map(({ name, id }) => (
               <NavLink key={id} href={id} text={name} />
             ))}
+          </Flex>
+          <Flex>
+            <ToggleDarkMode />
           </Flex>
         </Container>
       </Box>

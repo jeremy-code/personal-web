@@ -6,16 +6,17 @@ import {
   InputLeftElement,
   FormErrorMessage,
   Input,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
-import { IconType, Icon } from "../Misc";
+import { Icon } from "../Misc";
 import { ContactFormData } from "./ContactForm";
 
 type ContactFormProps = {
   name: "name" | "email";
   placeholder: string;
-  icon: IconType;
+  icon: string;
   error?: FieldError;
   register: UseFormRegister<ContactFormData>;
 };
@@ -43,6 +44,7 @@ const ContactFormInput = ({
           {...register(name, {
             required: `${name} is required`,
           })}
+          variant={useColorModeValue("outline", "filled")}
         />
       </InputGroup>
       <FormErrorMessage>{error?.message}</FormErrorMessage>

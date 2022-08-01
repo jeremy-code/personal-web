@@ -1,10 +1,21 @@
 import React from "react";
-import { Center, Text, Link as CLink } from "@chakra-ui/react";
+import {
+  Center,
+  Text,
+  Link as CLink,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Link } from "gatsby";
 
 const Footer = () => {
   return (
-    <Center as="footer" borderTop="1px" borderColor="gray.200" py={6} mt={8}>
+    <Center
+      as="footer"
+      borderTop="1px"
+      borderColor={useColorModeValue("gray.200", "gray.700")}
+      py={6}
+      mt={8}
+    >
       <Text>
         {"Made with "}
         <span role="img" aria-label="love">
