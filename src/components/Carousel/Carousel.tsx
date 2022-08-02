@@ -75,6 +75,7 @@ const Carousel = () => {
         <AnimatedProjectCards
           drag="x"
           dragConstraints={constraintRef}
+          dragDirectionLock
           ref={carouselRef}
           onDrag={onDragHandler}
         />

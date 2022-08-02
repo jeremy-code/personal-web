@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { motion, useSpring } from "framer-motion";
-import { useEffect } from "react";
 
 type ScrollIndicatorProps = {
   callback: () => number;
