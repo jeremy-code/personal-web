@@ -1,14 +1,9 @@
-import React, {
-  useState,
-  useLayoutEffect,
-  useRef,
-  useCallback,
-  useDeferredValue,
-} from "react";
-import { Box } from "@chakra-ui/react";
+import React, { useState, useLayoutEffect, useRef, useCallback } from "react";
+import { Box, useBoolean } from "@chakra-ui/react";
 import { motion, MotionStyle } from "framer-motion";
 
 import CarouselCards from "./CarouselCards";
+import { useWindowSize } from "../../hooks";
 import ScrollIndicator from "./ScrollIndicator";
 
 const AnimatedProjectCards = motion(CarouselCards);
@@ -16,6 +11,7 @@ const AnimatedProjectCards = motion(CarouselCards);
 const Carousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const constraintRef = useRef<HTMLDivElement>(null);
+  const { width } = useWindowSize();
 
   /**
    * Definitely not a great solution, but it works. Prior, I was just using the carousels
@@ -43,31 +39,18 @@ const Carousel = () => {
       width: offsetWidth + (scrollWidth - offsetWidth),
       left: offsetWidth - scrollWidth + offsetLeft,
     }));
-  }, [carouselRef]);
+  }, [
+    carouselRef.current?.offsetLeft,
+    carouselRef.current?.offsetWidth,
+    carouselRef.current?.scrollWidth,
+  ]);
 
+  // Update the constraints on mount and on resize
   useLayoutEffect(() => {
     updateConstraint();
-    window.addEventListener("resize", updateConstraint);
+  }, [width]);
 
-    return () => window.removeEventListener("resize", updateConstraint);
-  }, []);
-
-  const deferredTranslate = useDeferredValue(carouselRef.current?.scrollLeft);
-
-  // create a callback function that occurs on drag
-  const onDragHandler = useCallback(() => {
-    const element = carouselRef.current!;
-    // Get the translateX style from the carousel as a number
-    const rawTranslateX = parseInt(
-      element.style.transform.replace(/[^-\d.]/g, "")
-    );
-    // Return 0 if positive (meaning scrolled to the left)
-    const translateX = rawTranslateX < 0 ? -rawTranslateX : 0;
-
-    const totalWidth = element.scrollWidth - element.clientWidth;
-    return translateX / totalWidth;
-    // only run when the transform changes
-  }, [deferredTranslate]);
+  const [drag, setDrag] = useBoolean(false);
 
   return (
     <>
@@ -77,11 +60,12 @@ const Carousel = () => {
           dragConstraints={constraintRef}
           dragDirectionLock
           ref={carouselRef}
-          onDrag={onDragHandler}
+          onDragStart={setDrag.on}
+          onDragTransitionEnd={setDrag.off}
         />
         <motion.div style={constraintStyle} ref={constraintRef} />
       </Box>
-      <ScrollIndicator callback={onDragHandler} />
+      <ScrollIndicator isDrag={drag} containerRef={carouselRef} />
     </>
   );
 };

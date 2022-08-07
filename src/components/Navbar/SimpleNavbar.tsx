@@ -14,8 +14,10 @@ import NavLink from "./NavLink";
 import NAV_ITEMS from "../../../content/nav-items.json";
 import { ToggleDarkMode } from "../Misc";
 
+type NavbarProps = BoxProps;
+
 const SimpleNavbar = forwardRef(
-  (props: BoxProps, ref: React.LegacyRef<HTMLDivElement>) => {
+  (props: NavbarProps, ref: React.LegacyRef<HTMLDivElement>) => {
     return (
       <Box
         bg={useColorModeValue("white", "gray.900")}

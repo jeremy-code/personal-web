@@ -1,19 +1,17 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
-import * as React from "react";
+import React, { Suspense } from "react";
+import { Flex, Skeleton } from "@chakra-ui/react";
+import { StaticImage } from "gatsby-plugin-image";
 
 import { Layout, Hero, Section } from "../components/Layout";
 import { Navbar } from "../components/Navbar";
+import { CardStack, FlipCard } from "../components/Card";
+import { ContactForm } from "../components/Contact";
+import { SocialMediaButtonGroup, Seo } from "../components/Misc";
+
+const Carousel = React.lazy(() => import("../components/Carousel/Carousel"));
 
 import ABOUT_CARDS from "../../content/about-cards.json";
-import { CardStack, FlipCard } from "../components/Card";
-import { Carousel } from "../components/Carousel";
-import { ContactForm } from "../components/Contact";
-import { SocialMediaButtonGroup, SocialMediaProps } from "../components/Misc";
-
 import SOCIAL_MEDIA from "../../content/social-media.json";
-
-import { StaticImage } from "gatsby-plugin-image";
-import { Seo } from "../components/Seo";
 
 const IndexPage = () => {
   return (
@@ -32,7 +30,9 @@ const IndexPage = () => {
         </CardStack>
       </Section>
       <Section title="Projects" id="projects">
-        <Carousel />
+        <Suspense fallback={<Skeleton />}>
+          <Carousel />
+        </Suspense>
       </Section>
       <Section variant="split" title="Contact" id="contact">
         <ContactForm />

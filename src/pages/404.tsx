@@ -4,7 +4,7 @@ import { Container, Heading, Text, Link as CLink } from "@chakra-ui/react";
 
 import { Layout } from "../components/Layout";
 import { Navbar } from "../components/Navbar";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/Misc";
 
 const NotFoundPage = () => {
   return (
@@ -17,7 +17,6 @@ const NotFoundPage = () => {
         <Text my="4">
           You just hit a route that doesn't exist... the sadness.
         </Text>
-
         <CLink as={Link} to="/" color="primary.500">
           Go back to the homepage
         </CLink>

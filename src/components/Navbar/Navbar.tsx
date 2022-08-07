@@ -1,35 +1,38 @@
-import React, { useEffect, useRef } from "react";
-import { motion, AnimatePresence, Variants, useInView } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
-import SimpleNavbar from "./SimpleNavbar";
+import { useDisclosure } from "@chakra-ui/react";
+import { SimpleNavbar } from "./";
+import { useOnScreen } from "../../hooks";
 
 const NavbarVariants: Variants = {
   hidden: {
     y: -100,
-    position: "fixed",
   },
   fixed: {
     y: 0,
-    position: "fixed",
   },
 };
 
-const MotionComponent = motion(SimpleNavbar);
+const MotionNavbar = motion(SimpleNavbar);
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const onScreen = useOnScreen(ref);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       {/* Animated navbar that is rendered whenever the normal navbar leaves the viewport */}
       <AnimatePresence>
-        {!isInView && (
-          <MotionComponent
+        {!onScreen && (
+          <MotionNavbar
             variants={NavbarVariants}
             animate="fixed"
             initial="hidden"
             exit="hidden"
+            position="fixed"
           />
         )}
       </AnimatePresence>
