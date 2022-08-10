@@ -1,47 +1,43 @@
-# Jeremy Nguyen's Personal Website
+# Jeremy Nguyen's Personal Site
 
-## About
+![GitHub Actions badge](https://github.com/jeremynguyencs/personal-web/actions/workflows/ci.yml/badge.svg)
 
-Personal portfolio website for Jeremy Nguyen. Built in React and Typescript with [Gatsby](https://www.gatsbyjs.com/) and hosted on [Cloudflare](https://www.cloudflare.com/).
-
-Libraries used:
-
-1. Chakra UI
-2. Framer Motion
-3. Gatsby
-4. GraphQL
-5. Heroicons
-
-Graphics used from open-source project [undraw.co](https://undraw.co/).
+Jeremy Nguyen's Personal Site is a [React](https://reactjs.org/) web application that uses static site generation with [Gatsby](https://www.gatsbyjs.com) and [GraphQL](https://graphql.org). It is deployed and hosted at [Cloudflare Pages](https://pages.cloudflare.com) with additional functionality provided with serverless [Cloudflare Workers](https://workers.cloudflare.com/) functions.
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Author](#author)
-
-## Prerequisites
-
-- npm >=5.5.0
-- npm >=9.3.0
+- [License](#license)
 
 ## Installation
 
-```bash
+```shell
+## install with npm
 npm install
-# or
-yarn install
+
+## install with yarn
+yarn
 ```
 
 ## Usage
 
-Run the development server with:
+Run the development server on [localhost:8000](http://localhost:8000) by running:
 
-```bash
+```shell
 npm run start
 # or
 yarn start
 ```
 
-Open http://localhost:3000 to view it in your browser.
+Build the project by running:
+
+```
+npm run build
+# or
+yarn build
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
