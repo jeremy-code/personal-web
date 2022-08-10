@@ -18,7 +18,7 @@ jobs:
           node-version: "12.x"
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn
 
       - run: yarn lint
       - run: yarn format
