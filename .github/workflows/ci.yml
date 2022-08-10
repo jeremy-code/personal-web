@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - run: yarn lint
-      - run: yarn format
+      - run: yarn eslint
+      - run: yarn prettier -c **/*.{js,jsx,ts,tsx}
 
       - name: Build
         run: yarn build
