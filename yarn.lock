@@ -1427,7 +1427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.18.0, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.18.0, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
@@ -6394,7 +6394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.3.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.3":
+"chokidar@npm:^3.4.2, chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
   dependencies:
@@ -8647,7 +8647,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
@@ -9365,23 +9365,6 @@ __metadata:
   peerDependencies:
     gatsby: ^4.0.0-next
   checksum: 5741faa2bbf246d696c0033da48e78590603aaa7095f5c1c0d7bcd40243fca96824b4bcad0975bb66b61254a94a5ca93e3a24d3ab238101885cd03c922274987
-  languageName: node
-  linkType: hard
-
-"gatsby-plugin-prettier-eslint@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "gatsby-plugin-prettier-eslint@npm:1.0.6"
-  dependencies:
-    "@babel/runtime": ^7.8.7
-    chokidar: ^3.3.1
-    fast-glob: ^3.2.2
-    lodash.mergewith: ^4.6.2
-    picomatch: ^2.2.2
-  peerDependencies:
-    eslint: ^7.25.0
-    gatsby: ^2.0.0 || ^3.0.0
-    prettier: ^2.2.1
-  checksum: 45d7be308939786a37421cb0a41b0810f6a167e6fbbfd5c236be1c2de73665873f41ea9d7879b0c72d69b261af45f3224b9bc22ec7dec04c71eb09b6bf82baf1
   languageName: node
   linkType: hard
 
@@ -11683,7 +11666,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.mergewith@npm:4.6.2, lodash.mergewith@npm:^4.6.2":
+"lodash.mergewith@npm:4.6.2":
   version: 4.6.2
   resolution: "lodash.mergewith@npm:4.6.2"
   checksum: a6db2a9339752411f21b956908c404ec1e088e783a65c8b29e30ae5b3b6384f82517662d6f425cc97c2070b546cc2c7daaa8d33f78db7b6e9be06cd834abdeb8
@@ -13279,7 +13262,6 @@ __metadata:
     gatsby: ^4.19.2
     gatsby-plugin-image: ^2.19.0
     gatsby-plugin-manifest: ^4.19.0
-    gatsby-plugin-prettier-eslint: ^1.0.6
     gatsby-plugin-sharp: ^4.19.0
     gatsby-plugin-sitemap: ^5.19.0
     gatsby-source-filesystem: ^4.19.0
@@ -13316,7 +13298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.3.1":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
