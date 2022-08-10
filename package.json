@@ -19,6 +19,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "prettier --write '**/*.{js,md,json,yml,yaml,css,scss,ts,tsx}'",
+    "format:check": "prettier --check '**/*.{ts,tsx}'",
     "lint": "eslint --fix",
     "typecheck": "tsc --noEmit",
     "postinstall": "husky install"
