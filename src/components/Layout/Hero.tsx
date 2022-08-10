@@ -70,9 +70,6 @@ const Hero = () => {
             colorScheme="primary"
             rightIcon={<Icon icon="ChevronRightIcon" />}
             onClick={handleClick}
-            // as={NavLink}
-            // text=""
-            // href="contact"
             cursor="pointer"
           >
             Contact me

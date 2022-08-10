@@ -1,10 +1,10 @@
 import React, { useState, useLayoutEffect, useRef, useCallback } from "react";
 import { Box, useBoolean } from "@chakra-ui/react";
-import { motion, MotionStyle } from "framer-motion";
+import { motion } from "framer-motion";
+import type { MotionStyle } from "framer-motion";
 
-import CarouselCards from "./CarouselCards";
 import { useWindowSize } from "../../hooks";
-import ScrollIndicator from "./ScrollIndicator";
+import { CarouselCards, ScrollIndicator } from "../Carousel";
 
 const AnimatedProjectCards = motion(CarouselCards);
 

@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-import { useDisclosure } from "@chakra-ui/react";
-import { SimpleNavbar } from "./";
+import SimpleNavbar from "./SimpleNavbar";
 import { useOnScreen } from "../../hooks";
 
 const NavbarVariants: Variants = {
@@ -19,8 +18,6 @@ const MotionNavbar = motion(SimpleNavbar);
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const onScreen = useOnScreen(ref);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>

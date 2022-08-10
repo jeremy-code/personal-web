@@ -1,6 +1,6 @@
 import React from "react";
 
-import SimpleNavLink from "./SimpleNavLink";
+import { SimpleNavLink } from "../Navbar";
 
 type NavLinkProps = {
   href: string;
@@ -16,11 +16,7 @@ const NavLink = ({ href, text }: NavLinkProps) => {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  return (
-    <>
-      <SimpleNavLink text={text} href={href} onClick={handleClick} />
-    </>
-  );
+  return <SimpleNavLink text={text} href={href} onClick={handleClick} />;
 };
 
 export default NavLink;

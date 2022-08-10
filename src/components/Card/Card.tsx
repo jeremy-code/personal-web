@@ -6,7 +6,8 @@ import {
   FlexProps,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import type { IGatsbyImageData } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 
 type CardContentProps = {

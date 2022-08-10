@@ -1,4 +1,4 @@
-import React, { useCallback, useDeferredValue } from "react";
+import React, { useCallback } from "react";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { motion, useSpring } from "framer-motion";
 import { useEffect } from "react";

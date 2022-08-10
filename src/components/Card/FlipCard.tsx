@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 
 import { FrontCard, BackCard } from "../Card";
+import type { IconType } from "../Misc";
 
 type FrontCardProps = {
   title: string;
@@ -73,7 +74,7 @@ const AnimatedCard = ({
           transition={transition}
           style={cardStyles}
         >
-          <FrontCard {...front} />
+          <FrontCard {...front} icon={front.icon as IconType} />
         </motion.div>
       </GridItem>
       <GridItem gridArea="1 / 1 " zIndex={isFlipped ? 1 : 0}>

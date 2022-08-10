@@ -1,13 +1,13 @@
-import * as React from "react";
+import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 // hosts fonts locally for performance
 import "@fontsource/dm-sans/400.css";
 import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-sans/700.css";
 
-import "../../index.css";
+import { Footer } from "../Layout";
 import theme from "../../utils/theme";
-import Footer from "./Footer";
+import "../../index.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

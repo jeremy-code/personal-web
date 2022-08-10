@@ -1,18 +1,16 @@
-import React from "react";
-import {
-  Link,
-  forwardRef,
-  LinkProps,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import React, { forwardRef } from "react";
+import { Link, useColorModeValue } from "@chakra-ui/react";
+import type { LinkProps } from "@chakra-ui/react";
 
 type NavLinkProps = {
   href: string;
   text: string;
 } & LinkProps;
 
-const SimpleNavLink = forwardRef(
-  ({ href, text, ...rest }: NavLinkProps, ref) => {
+const SimpleNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+  (props, ref) => {
+    const { href, text, ...rest } = props;
+
     return (
       <Link
         color={useColorModeValue("gray.600", "gray.400")}

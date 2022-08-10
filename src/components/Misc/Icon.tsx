@@ -1,8 +1,9 @@
 import React, { forwardRef } from "react";
 import * as Icons from "@heroicons/react/outline";
-import { Icon as CIcon, IconProps as CIconProps } from "@chakra-ui/react";
+import { Icon as CIcon } from "@chakra-ui/react";
+import type { IconProps as CIconProps } from "@chakra-ui/react";
 
-type IconType = keyof typeof Icons;
+export type IconType = keyof typeof Icons;
 
 type IconProps = {
   icon: string;
@@ -23,17 +24,4 @@ const Icon = forwardRef(
   }
 );
 
-// ));
-
-// ({ icon, ...rest }: IconProps) => {
-//   const IconComponent = Icons[icon as IconType];
-
-//   return (
-//     <CIcon
-//       as={IconComponent ?? Icons["QuestionMarkCircleIcon"]}
-//       boxSize={5}
-//       {...rest}
-//     />
-//   );
-// };
 export default Icon;

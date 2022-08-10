@@ -1,8 +1,8 @@
 import React from "react";
-import { useColorMode, Switch, color } from "@chakra-ui/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useColorMode, Switch } from "@chakra-ui/react";
 
 import Icon from "./Icon";
-import { AnimatePresence, motion } from "framer-motion";
 
 const MotionIcon = motion(Icon);
 
@@ -19,6 +19,7 @@ const ToggleDarkMode = () => {
         isChecked={booleanColorMode}
         onChange={toggleColorMode}
         colorScheme="primary"
+        aria-label="Toggle dark mode"
       >
         <AnimatePresence>
           {booleanColorMode ? (

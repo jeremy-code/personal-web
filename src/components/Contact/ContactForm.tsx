@@ -2,8 +2,7 @@ import React from "react";
 import { Button, useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
-import ContactFormInput from "./ContactFormInput";
-import ContactFormTextarea from "./ContactFormTextarea";
+import { ContactFormInput, ContactFormTextarea } from "../Contact";
 
 export type ContactFormData = {
   name: string;

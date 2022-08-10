@@ -22,7 +22,7 @@ const Footer = () => {
           ❤️
         </span>
         {" by "}
-        <CLink as={Link} to="/" color="primary.500">
+        <CLink as={Link} to="/" color="primary.700">
           Jeremy Nguyen
         </CLink>
       </Text>

@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
       name: `Jeremy Nguyen`,
       summary: `who lives in San Diego and spends his time coding and building things.`,
     },
-    description: `A personal website for Jeremy Nguyen to display his programming work and projects.`,
+    description: `Jeremy Nguyen's personal website. I'm a software developer who loves to build things.`,
     siteUrl: `https://jeremynguyen.dev`,
   },
   graphqlTypegen: true,
@@ -44,6 +44,20 @@ const config: GatsbyConfig = {
       options: {
         resetCSS: true,
         isUsingColorMode: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-5R1E1FJQ6H"],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+        },
       },
     },
   ],
