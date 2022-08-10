@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
       options: {
         name: "Jeremy Nguyen's website",
         short_name: "Jeremy Nguyen",
+        lang: "en",
         description:
           "Jeremy Nguyen's personal portfolio website for programming and software development projects",
         start_url: "/",
@@ -43,6 +44,28 @@ const config: GatsbyConfig = {
       options: {
         resetCSS: true,
         isUsingColorMode: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-prettier-eslint",
+      options: {
+        prettier: {
+          patterns: [
+            "**/*.{css,scss,less}",
+            "**/*.{json,json5}",
+            "**/*.{graphql}",
+            "**/*.{md,mdx}",
+            "**/*.{html}",
+            "**/*.{yaml,yml}",
+          ],
+        },
+        eslint: {
+          patterns: "**/*.{js,jsx,ts,tsx}",
+          customOptions: {
+            fix: true,
+            cache: true,
+          },
+        },
       },
     },
   ],

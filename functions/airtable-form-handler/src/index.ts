@@ -8,7 +8,9 @@ addEventListener("fetch", (event) => {
     } else if (request.method === "POST") {
       event.respondWith(handleRequest(event));
     } else {
-      event.respondWith(new Response(null, { status: 405, statusText: "Method Not Allowed" }));
+      event.respondWith(
+        new Response(null, { status: 405, statusText: "Method Not Allowed" })
+      );
     }
   }
 });
@@ -53,7 +55,9 @@ const handleRequest = async (event: FetchEvent) => {
 
 const createAirtableRecord = (values: FieldValues) => {
   return fetch(
-    `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`,
+    `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(
+      AIRTABLE_TABLE_NAME
+    )}`,
     {
       method: "POST",
       body: JSON.stringify({
