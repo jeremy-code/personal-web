@@ -1,8 +1,8 @@
 export {};
 
 declare global {
-  const AIRTABLE_BASE_ID: string;
-  const AIRTABLE_TABLE_NAME: string;
-  const AIRTABLE_API_KEY: string;
   const MESSAGES: KVNamespace;
+  const DSN: string;
+  const SENDGRID_API_KEY: string;
+  const SENDGRID_TEMPLATE_ID: string;
 }

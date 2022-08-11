@@ -1,40 +1,4 @@
-import { jsonResponse } from "../utils/jsonResponse";
-
-type AirtableCredentials = {
-  AIRTABLE_API_KEY: string;
-  AIRTABLE_BASE_ID: string;
-  AIRTABLE_TABLE_NAME: string;
-};
-
-export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async ({
-  request,
-  env,
-}) => {
-  try {
-    const { name, email, message } = await parseFormData(request);
-    const rand = Math.floor(Math.random() * 101).toString();
-    const kVPromise = env.MESSAGES.put(
-      `${email}-${rand}`,
-      `${name} - ${message}`
-    );
-    const airTablePromise = createAirtableRecord(
-      { name, email, message },
-      {
-        AIRTABLE_API_KEY: env.AIRTABLE_API_KEY,
-        AIRTABLE_BASE_ID: env.AIRTABLE_BASE_ID,
-        AIRTABLE_TABLE_NAME: env.AIRTABLE_TABLE_NAME,
-      }
-    );
-    await Promise.all([kVPromise, airTablePromise]);
-    return jsonResponse("Successfully submitted form", {
-      status: 200,
-      statusText: "OK",
-    });
-  } catch (error) {
-    console.error(error);
-    return jsonResponse(error, { status: 500 });
-  }
-};
+import { jsonResponse, parseFormData } from "../utils";
 
 type FormData = {
   name: string;
@@ -42,30 +6,64 @@ type FormData = {
   message: string;
 };
 
-const parseFormData = async (request: Request): Promise<FormData> => {
-  const formData = (await request.formData()) as unknown as Iterable<
-    [FormData, string | File]
-  >;
-  const data: FormData = Object.fromEntries(formData);
-  return data;
+export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
+  context
+) => {
+  const API_KEY = context.env.SENDGRID_API_KEY;
+  const TEMPLATE_ID = context.env.SENDGRID_TEMPLATE_ID;
+  const data = await parseFormData<FormData>(context.request);
+  if (!data.name || !data.email || !data.message)
+    throw new Error("Missing data");
+  const kVPromise = handleKVStorage(data, context.env.MESSAGES);
+  const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
+  const res = await Promise.all([kVPromise, mailPromise]);
+  if (!res[1].ok) throw new Error("Sendgrid error");
+  return jsonResponse("Successfully submitted form", {
+    status: 200,
+    statusText: "OK",
+  });
 };
 
-const createAirtableRecord = (
-  values: FormData,
-  airtable: AirtableCredentials
+const handleKVStorage = async (data: FormData, storage: KVNamespace) => {
+  const { name, email, message } = data;
+  const rand = Math.floor(Math.random() * 101).toString();
+  return storage.put(`${email}-${rand}`, `${name} - ${message}`);
+};
+
+const sendEmail = async (
+  data: FormData,
+  apiKey: string,
+  template_id: string
 ) => {
-  const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME } = airtable;
-  return fetch(
-    `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(
-      AIRTABLE_TABLE_NAME
-    )}`,
-    {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-        "Content-type": `application/json`,
+  const { name, email, message } = data;
+
+  const fetchRequestOptions: RequestInit = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: {
+        email: "hi@jeremynguyen.dev",
       },
-    }
-  );
+      personalizations: [
+        {
+          to: [
+            {
+              email: "hi@jeremynguyen.dev",
+            },
+          ],
+          dynamic_template_data: {
+            name: name,
+            email: email,
+            message: message,
+            date: new Date().toLocaleString(),
+          },
+        },
+      ],
+      template_id: template_id,
+    }),
+  };
+  return fetch("https://api.sendgrid.com/v3/mail/send", fetchRequestOptions);
 };
