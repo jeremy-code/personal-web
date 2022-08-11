@@ -14,6 +14,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>();
   const toast = useToast();
@@ -28,10 +29,7 @@ const ContactForm = () => {
         message: data.message,
       }),
     };
-    const response = await fetch(
-      process.env.GATSBY_SERVERLESS_FN_URL || "",
-      requestOptions
-    );
+    const response = await fetch("/api/form", requestOptions);
     if (response.ok) {
       toast({
         title: "Success",
@@ -40,6 +38,7 @@ const ContactForm = () => {
         duration: 9000,
         isClosable: true,
       });
+      reset();
     }
   };
 

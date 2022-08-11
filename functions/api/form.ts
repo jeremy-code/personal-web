@@ -14,7 +14,11 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async ({
   const airtable = { AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, AIRTABLE_API_KEY };
   try {
     const { name, email, message } = await parseFormData(request);
-    const kVPromise = env.MESSAGES.put(email, `${name} - ${message}`);
+    const rand = Math.floor(Math.random() * 101).toString();
+    const kVPromise = env.MESSAGES.put(
+      `${email}-${rand}`,
+      `${name} - ${message}`
+    );
     const airTablePromise = createAirtableRecord(
       { name, email, message },
       airtable
