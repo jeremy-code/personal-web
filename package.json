@@ -1,17 +1,14 @@
 {
   "name": "personal-web",
+  "author": "Jeremy Nguyen",
   "description": "Jeremy Nguyen's personal portfolio website, built in React and Gatsby and hosted on Cloudflare with serverless functions",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "author": "Jeremy Nguyen",
   "repository": {
     "type": "git",
     "url": "https://github.com/jeremynguyencs/personal-web.git"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -43,9 +40,11 @@
     "intersection-observer": "^0.12.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-hook-form": "^7.34.0"
+    "react-hook-form": "^7.34.0",
+    "wrangler": "^2.0.25"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
     "@types/node": "^18.7.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
