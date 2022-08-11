@@ -10,8 +10,6 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async ({
   request,
   env,
 }) => {
-  const { AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, AIRTABLE_API_KEY } = env;
-  const airtable = { AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, AIRTABLE_API_KEY };
   try {
     const { name, email, message } = await parseFormData(request);
     const rand = Math.floor(Math.random() * 101).toString();
@@ -21,7 +19,11 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async ({
     );
     const airTablePromise = createAirtableRecord(
       { name, email, message },
-      airtable
+      {
+        AIRTABLE_API_KEY: env.AIRTABLE_API_KEY,
+        AIRTABLE_BASE_ID: env.AIRTABLE_BASE_ID,
+        AIRTABLE_TABLE_NAME: env.AIRTABLE_TABLE_NAME,
+      }
     );
     await Promise.all([kVPromise, airTablePromise]);
     return jsonResponse("Successfully submitted form", {
@@ -52,16 +54,14 @@ const createAirtableRecord = (
   values: FormData,
   airtable: AirtableCredentials
 ) => {
-  const { AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, AIRTABLE_API_KEY } = airtable;
+  const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME } = airtable;
   return fetch(
     `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(
       AIRTABLE_TABLE_NAME
     )}`,
     {
       method: "POST",
-      body: JSON.stringify({
-        fields: values,
-      }),
+      body: JSON.stringify(values),
       headers: {
         Authorization: `Bearer ${AIRTABLE_API_KEY}`,
         "Content-type": `application/json`,
