@@ -10852,9 +10852,9 @@ word-wrap@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
 
-wrangler@^2.0.25:
-  version "2.0.25"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.0.25.tgz#e150806c49f30e7f5b76310a06aec0d6f8eb607c"
+wrangler@^2.0.26:
+  version "2.0.26"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.0.26.tgz#24645e2c1615b9f7176c328b3166b7443c1b0304"
   dependencies:
     "@cloudflare/kv-asset-handler" "^0.2.0"
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
