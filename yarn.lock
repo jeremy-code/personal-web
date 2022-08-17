@@ -6092,9 +6092,9 @@ fraction.js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
 
-framer-motion@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.1.2.tgz#4e37c50fc455df0201b36530eb0d470fead025d9"
+framer-motion@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.2.0.tgz#1abc8090e185eaac8a3b3729e2529154d2edcb17"
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"
