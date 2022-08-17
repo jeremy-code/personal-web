@@ -32,8 +32,8 @@
     "gatsby": "^4.19.2",
     "gatsby-plugin-google-gtag": "^4.20.0",
     "gatsby-plugin-image": "^2.19.0",
-    "gatsby-plugin-manifest": "^4.19.0",
-    "gatsby-plugin-sharp": "^4.19.0",
+    "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-sharp": "^4.21.0",
     "gatsby-plugin-sitemap": "^5.20.0",
     "gatsby-source-filesystem": "^4.19.0",
     "gatsby-transformer-sharp": "^4.19.0",
@@ -42,7 +42,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.34.2",
     "toucan-js": "^2.6.1",
-    "wrangler": "^2.0.25"
+    "wrangler": "^2.0.26"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
