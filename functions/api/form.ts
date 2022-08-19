@@ -17,6 +17,7 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
     throw new Error("Missing data");
   const kVPromise = handleKVStorage(data, context.env.MESSAGES);
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
+
   const dbPromise = addMessageToDB(data, DB_MESSAGES);
 
   const res = await Promise.all([kVPromise, mailPromise, dbPromise]);
@@ -75,23 +76,16 @@ const addMessageToDB = async (data: FormData, db) => {
   const { name, email, message } = data;
   const createTableRes = await db
     .prepare(
-      `CREATE TABLE IF NOT EXISTS messages (
-      id INTEGER PRIMARY KEY,
-      name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      message TEXT NOT NULL,
-      date TEXT NOT NULL
-    );`
+      "CREATE TABLE messages (id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL, message TEXT NOT NULL, date TEXT NOT NULL)"
     )
     .run();
   if (createTableRes.error) throw new Error("Error creating table");
 
-  const insertData = `
-    INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?);
-  `;
-  const res = db
-    .prepare(insertData)
+  const stmt = await db
+    .prepare(
+      "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
+    )
     .bind(name, email, message, new Date().toLocaleString())
     .run();
-  return res;
+  return stmt;
 };
