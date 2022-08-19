@@ -23,7 +23,8 @@ const ScrollIndicator = ({ isDrag, containerRef }: ScrollIndicatorProps) => {
 
   const updatePercentage = useCallback(() => {
     const getPercent = () => {
-      const element = containerRef.current!;
+      if (!containerRef.current) return 0;
+      const element = containerRef.current;
       const translateX = getTranslateX(element);
       const totalWidth = element.scrollWidth - element.clientWidth;
       const percent = translateX / totalWidth;

@@ -13,6 +13,7 @@ import { Link } from "gatsby";
 import { NavLink } from "../Navbar";
 import { ToggleDarkMode } from "../Misc";
 import NAV_ITEMS from "../../../content/nav-items.json";
+import MobileNavButton from "./MobileNavButton";
 
 type NavbarProps = BoxProps;
 
@@ -26,9 +27,14 @@ const SimpleNavbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
       ref={ref}
       w="full"
       zIndex={999}
+      position="relative"
       {...props}
     >
       <Container as={Flex} align="center" justify="space-between">
+        <MobileNavButton
+          aria-label="Open navigation menu"
+          display={["block", null, "none"]}
+        />
         <Flex gap={4} align="center">
           <Flex gap={3} align="center">
             <Link to="/">

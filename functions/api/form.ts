@@ -16,8 +16,10 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
     throw new Error("Missing data");
   const kVPromise = handleKVStorage(data, context.env.MESSAGES);
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
-  const res = await Promise.all([kVPromise, mailPromise]);
-  if (!res[1].ok) throw new Error("Sendgrid error");
+  const dbPromise = addMessageToDB(data, context.env.DB_MESSAGES);
+
+  const res = await Promise.all([kVPromise, mailPromise, dbPromise]);
+  if (!res[1].ok || res[2].error) throw new Error("Sendgrid error");
   return jsonResponse("Successfully submitted form", {
     status: 200,
     statusText: "OK",
@@ -66,4 +68,29 @@ const sendEmail = async (
     }),
   };
   return fetch("https://api.sendgrid.com/v3/mail/send", fetchRequestOptions);
+};
+
+const addMessageToDB = async (data: FormData, db: typeof DB_MESSAGES) => {
+  const { name, email, message } = data;
+  const createTableRes = await db
+    .prepare(
+      `CREATE TABLE IF NOT EXISTS messages (
+      id INTEGER PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      message TEXT NOT NULL,
+      date TEXT NOT NULL
+    );`
+    )
+    .run();
+  if (createTableRes.error) throw new Error("Error creating table");
+
+  const insertData = `
+    INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?);
+  `;
+  const res = db
+    .prepare(insertData)
+    .bind(name, email, message, new Date().toLocaleString())
+    .run();
+  return res;
 };

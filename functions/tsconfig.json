@@ -4,6 +4,6 @@
     "module": "CommonJS",
     "esModuleInterop": true,
     "lib": ["ES2020", "DOM"],
-    "types": ["@cloudflare/workers-types"]
+    "types": ["@cloudflare/workers-types", "./types"]
   }
 }

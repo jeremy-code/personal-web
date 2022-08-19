@@ -42,7 +42,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.34.1",
     "toucan-js": "^2.6.1",
-    "wrangler": "^2.0.25"
+    "wrangler": "^0.0.0-7c228171"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
