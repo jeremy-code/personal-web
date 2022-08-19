@@ -38,8 +38,16 @@ const ContactForm = () => {
         duration: 9000,
         isClosable: true,
       });
-      reset();
+    } else {
+      toast({
+        title: "Error",
+        description: "Something went wrong.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
+    reset();
   };
 
   return (

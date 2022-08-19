@@ -11,12 +11,13 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
 ) => {
   const API_KEY = context.env.SENDGRID_API_KEY;
   const TEMPLATE_ID = context.env.SENDGRID_TEMPLATE_ID;
+  const DB_MESSAGES = context.env.DB_MESSAGES;
   const data = await parseFormData<FormData>(context.request);
   if (!data.name || !data.email || !data.message)
     throw new Error("Missing data");
   const kVPromise = handleKVStorage(data, context.env.MESSAGES);
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
-  const dbPromise = addMessageToDB(data, context.env.DB_MESSAGES);
+  const dbPromise = addMessageToDB(data, DB_MESSAGES);
 
   const res = await Promise.all([kVPromise, mailPromise, dbPromise]);
   if (!res[1].ok || res[2].error) throw new Error("Sendgrid error");
@@ -70,7 +71,7 @@ const sendEmail = async (
   return fetch("https://api.sendgrid.com/v3/mail/send", fetchRequestOptions);
 };
 
-const addMessageToDB = async (data: FormData, db: typeof DB_MESSAGES) => {
+const addMessageToDB = async (data: FormData, db) => {
   const { name, email, message } = data;
   const createTableRes = await db
     .prepare(
