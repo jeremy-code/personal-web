@@ -18,9 +18,14 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
   const kVPromise = handleKVStorage(data, context.env.MESSAGES);
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
 
-  const dbPromise = addMessageToDB(data, DB_MESSAGES);
+  const { name, email, message } = data;
+  const stmt = DB_MESSAGES.prepare(
+    "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
+  )
+    .bind(name, email, message, new Date().toLocaleString())
+    .run();
 
-  const res = await Promise.all([kVPromise, mailPromise, dbPromise]);
+  const res = await Promise.all([kVPromise, mailPromise, stmt]);
   if (!res[1].ok || res[2].error) throw new Error("Sendgrid error");
   return jsonResponse("Successfully submitted form", {
     status: 200,
@@ -70,22 +75,4 @@ const sendEmail = async (
     }),
   };
   return fetch("https://api.sendgrid.com/v3/mail/send", fetchRequestOptions);
-};
-
-const addMessageToDB = async (data: FormData, db) => {
-  const { name, email, message } = data;
-  const createTableRes = await db
-    .prepare(
-      "CREATE TABLE messages (id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL, message TEXT NOT NULL, date TEXT NOT NULL)"
-    )
-    .run();
-  if (createTableRes.error) throw new Error("Error creating table");
-
-  const stmt = await db
-    .prepare(
-      "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
-    )
-    .bind(name, email, message, new Date().toLocaleString())
-    .run();
-  return stmt;
 };
