@@ -20,14 +20,15 @@ export const onRequestPost: PagesFunction<{
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
 
   const { name, email, message } = data;
-  const stmt = context.env.DB_MESSAGES.prepare(
+  const stmt = await context.env.DB_MESSAGES.prepare(
     "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
   )
     .bind(name, email, message, new Date().toLocaleString())
     .run();
+  console.log(stmt);
 
-  const res = await Promise.all([kVPromise, mailPromise, stmt]);
-  if (!res[1].ok || res[2].error) throw new Error("Sendgrid error");
+  const res = await Promise.all([kVPromise, mailPromise]);
+  if (!res[1].ok) throw new Error("Sendgrid error");
   return jsonResponse("Successfully submitted form", {
     status: 200,
     statusText: "OK",
