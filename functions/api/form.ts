@@ -1,4 +1,5 @@
 import { jsonResponse, parseFormData } from "../utils";
+import type { Database } from "@cloudflare/d1";
 
 type FormData = {
   name: string;
@@ -6,12 +7,12 @@ type FormData = {
   message: string;
 };
 
-export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
-  context
-) => {
+export const onRequestPost: PagesFunction<{
+  MESSAGES: KVNamespace;
+  DB_MESSAGES: Database;
+}> = async (context) => {
   const API_KEY = context.env.SENDGRID_API_KEY;
   const TEMPLATE_ID = context.env.SENDGRID_TEMPLATE_ID;
-  const DB_MESSAGES = context.env.DB_MESSAGES;
   const data = await parseFormData<FormData>(context.request);
   if (!data.name || !data.email || !data.message)
     throw new Error("Missing data");
@@ -19,7 +20,7 @@ export const onRequestPost: PagesFunction<{ MESSAGES: KVNamespace }> = async (
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
 
   const { name, email, message } = data;
-  const stmt = DB_MESSAGES.prepare(
+  const stmt = context.env.DB_MESSAGES.prepare(
     "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
   )
     .bind(name, email, message, new Date().toLocaleString())

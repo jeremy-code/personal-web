@@ -24,6 +24,7 @@
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^3.0.3",
     "@chakra-ui/react": "^2.2.4",
+    "@cloudflare/d1": "^1.4.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.9.3",
     "@fontsource/dm-sans": "^4.5.8",
