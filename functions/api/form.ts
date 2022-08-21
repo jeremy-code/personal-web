@@ -9,7 +9,7 @@ type FormData = {
 
 export const onRequestPost: PagesFunction<{
   MESSAGES: KVNamespace;
-  DB_MESSAGES: Database;
+  DB: Database;
 }> = async (context) => {
   const API_KEY = context.env.SENDGRID_API_KEY;
   const TEMPLATE_ID = context.env.SENDGRID_TEMPLATE_ID;
@@ -20,14 +20,12 @@ export const onRequestPost: PagesFunction<{
   const mailPromise = sendEmail(data, API_KEY, TEMPLATE_ID);
 
   const { name, email, message } = data;
-  const stmt = await context.env.DB_MESSAGES.prepare(
+  const stmt = context.env.DB.prepare(
     "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, ?)"
   )
     .bind(name, email, message, new Date().toLocaleString())
     .run();
-  console.log(stmt);
-
-  const res = await Promise.all([kVPromise, mailPromise]);
+  const res = await Promise.all([kVPromise, mailPromise, stmt]);
   if (!res[1].ok) throw new Error("Sendgrid error");
   return jsonResponse("Successfully submitted form", {
     status: 200,
