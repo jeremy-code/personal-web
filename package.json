@@ -30,7 +30,7 @@
     "@fontsource/dm-sans": "^4.5.8",
     "@heroicons/react": "^1.0.6",
     "better-sqlite3": "^7.6.2",
-    "framer-motion": "^7.2.0",
+    "framer-motion": "^7.2.1",
     "gatsby": "^4.21.1",
     "gatsby-plugin-google-gtag": "^4.21.0",
     "gatsby-plugin-image": "^2.21.0",
