@@ -5,9 +5,7 @@ import {
   useCycle,
   AnimatePresence,
 } from "framer-motion";
-import { IconButton, IconButtonProps, Box } from "@chakra-ui/react";
-
-import { useWindowSize } from "../../hooks";
+import { IconButton, IconButtonProps, Stack } from "@chakra-ui/react";
 
 import SimpleNavLink from "./SimpleNavLink";
 
@@ -28,9 +26,8 @@ import NAV_ITEMS from "../../../content/nav-items.json";
 const MobileNavButton = (props: IconButtonProps) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     toggleOpen();
-    console.log("clicked");
   };
 
   return (
@@ -45,7 +42,7 @@ const MobileNavButton = (props: IconButtonProps) => {
         alignItems="center"
         {...props}
       >
-        <svg width="100%" height="23" viewBox="0 0 23 23">
+        <svg width="100%" height="23" viewBox="0 0 22 22">
           <Path
             variants={{
               closed: { d: "M 2 2.5 L 20 2.5" },
@@ -74,13 +71,36 @@ const MobileNavButton = (props: IconButtonProps) => {
           />
         </svg>
       </IconButton>
-      <motion.div
-        style={{ position: "absolute", width: "100%", left: 0, top: "100%" }}
-      >
-        {NAV_ITEMS.content.map(({ name, id }) => (
-          <SimpleNavLink key={id} text={name} href={id} />
-        ))}
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ y: "-100" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100" }}
+            style={{
+              position: "absolute",
+              width: "100%",
+              left: 0,
+              top: "100%",
+              backgroundColor: "white",
+              borderBottom: "1px solid #E2E8F0",
+            }}
+          >
+            <Stack>
+              {NAV_ITEMS.content.map(({ name, id }) => (
+                <SimpleNavLink
+                  key={id}
+                  text={name}
+                  href={id}
+                  textAlign="center"
+                  py={2}
+                  _hover={{ textDecor: "none", bg: "gray.100" }}
+                />
+              ))}
+            </Stack>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
