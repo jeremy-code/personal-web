@@ -27,7 +27,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.9.3",
     "@fontsource/dm-sans": "^4.5.8",
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.8",
     "framer-motion": "^7.2.1",
     "gatsby": "^4.21.1",
     "gatsby-plugin-google-gtag": "^4.21.0",
