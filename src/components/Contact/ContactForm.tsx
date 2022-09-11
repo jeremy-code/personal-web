@@ -62,7 +62,7 @@ const ContactForm = () => {
       <ContactFormInput
         name="email"
         placeholder="jane.doe@starfleet.com"
-        icon="MailIcon"
+        icon="EnvelopeIcon"
         register={register}
         error={errors.email}
       />

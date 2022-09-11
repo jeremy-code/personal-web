@@ -2,6 +2,14 @@
   "title": "Project Card Content",
   "content": [
     {
+      "title": "Integra",
+      "tags": ["React", "GraphQL", "MongoDB"],
+      "description": "A web app that allows you to learn about your local political officials.",
+      "github": "https://github.com/jeremynguyencs/integra",
+      "link": "https://integra.vote/",
+      "image": "integra"
+    },
+    {
       "title": "PatientPort",
       "tags": ["React", "Solidity", "Ether.js"],
       "description": "React Blockchain web application for managing patient records.",

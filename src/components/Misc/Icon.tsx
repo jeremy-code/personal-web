@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import * as Icons from "@heroicons/react/outline";
+import * as Icons from "@heroicons/react/24/outline";
 import { Icon as CIcon } from "@chakra-ui/react";
 import type { IconProps as CIconProps } from "@chakra-ui/react";
 

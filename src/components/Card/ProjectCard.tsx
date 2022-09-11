@@ -37,14 +37,14 @@ const ProjectCard = ({
             href={github}
             aria-label="github"
             isExternal
-            icon={<Icon icon="CodeIcon" />}
+            icon={<Icon icon="CodeBracketIcon" />}
           />
           <IconButton
             as={Link}
             href={link}
             aria-label="demo"
             isExternal
-            icon={<Icon icon="ExternalLinkIcon" />}
+            icon={<Icon icon="LinkIcon" />}
             colorScheme="primary"
           />
         </ButtonGroup>

@@ -46,6 +46,7 @@ const CardImage = ({ image, altText }: CardImageProps) => {
               "crypto-app"
               "patient-port"
               "rhythm-room"
+              "integra"
               "covid-tracker"
             ]
           }
