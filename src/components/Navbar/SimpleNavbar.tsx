@@ -30,12 +30,18 @@ const SimpleNavbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
       position="relative"
       {...props}
     >
-      <Container as={Flex} align="center" justify="space-between">
+      <Container
+        as={Flex}
+        align="center"
+        justify="space-between"
+        gap={4}
+        flexShrink={1}
+      >
         <MobileNavButton
           aria-label="Open navigation menu"
           display={["block", null, "none"]}
         />
-        <Flex gap={4} align="center">
+        <Flex gap={4} align="center" flexGrow={1}>
           <Flex gap={3} align="center">
             <Link to="/">
               <StaticImage
