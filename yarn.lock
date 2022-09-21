@@ -10149,10 +10149,10 @@ word-wrap@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
 
-wrangler@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.1.3.tgz#65572bb261970dda36560515bd25730f68b5a374"
-  integrity sha512-0bOYKUYeAqWtNWipYfAknSS9OowQScpe6OLHj6vfnEl9g3QXmnd515y0zP1zXF2VUgocrsex5o8fkSMYyMLWLA==
+wrangler@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-2.1.5.tgz#da952685fc1949a1cf39605ce8f966571ce9afe1"
+  integrity sha512-j8nTCSygWdsPwPBytZj0oUSAAUCt8sh6K8ZTewHMNzT8yGGAb5aXIdSfzyGYTfp6dnMqaafz4Khyf34XmHcXGQ==
   dependencies:
     "@cloudflare/kv-asset-handler" "^0.2.0"
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
